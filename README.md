@@ -24,6 +24,10 @@ The primary goal of this project is to perform exploratory data analysis using S
 7. What is the mortality rate?
 8. Which age group has the highest infection rate?
 
+##Project Objective
+
+This project aims to analyze COVID-19 data to identify trends, patterns, and key insights that can support data-driven decision-making. By leveraging statistical and visualization techniques, the analysis will provide insights into infection rates, recovery trends, mortality rates, and the impact of various factors such as location, demographics, and healthcare interventions. The goal is to transform raw data into actionable information, enabling stakeholders to make informed decisions for public health strategies, resource allocation, and policy-making.
+
 ## SQL Analysis
 
 SQL was utilized to extract, transform, and analyze the data. Key analyses performed include:
