@@ -12,21 +12,8 @@ The dataset was divided into two main parts for easy analysis:
 
 The dataset includes various metrics such as the number of infected persons, total deaths, vaccinations,location, date,continents and many more.
 
-## Objectives
-
-The primary goal of this project is to perform exploratory data analysis using SQL to answer the following questions:
-1. What is the percentage of total cases recorded compared to total deaths recorded?
-2. What is the percentage of total cases recorded vs total population by countries?
-3. Which country has the highest infection rate?
-4. Which countries recorded the highest number of death cases per population?
-5. What is the global death rate percentage for COVID-19?
-6. What is the total population vaccinated per country?
-7. What is the mortality rate?
-8. Which age group has the highest infection rate?
-
-##Project Objective
-
-This project aims to analyze COVID-19 data to identify trends, patterns, and key insights that can support data-driven decision-making. By leveraging statistical and visualization techniques, the analysis will provide insights into infection rates, recovery trends, mortality rates, and the impact of various factors such as location, demographics, and healthcare interventions. The goal is to transform raw data into actionable information, enabling stakeholders to make informed decisions for public health strategies, resource allocation, and policy-making.
+## Objectives 
+This project aims to analyze COVID-19 data using SQL to uncover key insights and trends related to infection rates, recoveries, fatalities, and vaccination progress. By leveraging SQL queries, the analysis will focus on data extraction, cleaning, aggregation, and visualization to identify patterns across different regions and time periods. The objective is to provide data-driven insights that support decision-making in public health, resource allocation, and policy formulation.
 
 ## SQL Analysis
 
