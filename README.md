@@ -240,8 +240,6 @@ WHERE dea.continent IS NOT NULL;
 This SQL-based COVID-19 analysis highlights how **structured data querying** can reveal global health insights without relying on external analytical platforms.
 The project blends **technical SQL expertise** with **data storytelling**, forming a strong example of how a data analyst can turn raw public data into meaningful, policy-relevant intelligence.
 
-It demonstrates an ability to manage real-world datasets, engineer analytical pipelines, and communicate insights clearly — essential competencies for professional data analysts.
-
 ---
 
 ## 📬 Contact
