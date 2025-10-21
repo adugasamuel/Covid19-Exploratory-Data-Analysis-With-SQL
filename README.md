@@ -212,7 +212,7 @@ WHERE dea.continent IS NOT NULL;
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 * End-to-end analysis written entirely in **SQL** — no external tools required.
 * Modular code structure: each section (deaths, infections, vaccinations) analyzed separately.
@@ -235,7 +235,7 @@ WHERE dea.continent IS NOT NULL;
 
 ---
 
-## 🏁 Final Note
+## Final Note
 
 This SQL-based COVID-19 analysis highlights how **structured data querying** can reveal global health insights without relying on external analytical platforms.
 The project blends **technical SQL expertise** with **data storytelling**, forming a strong example of how a data analyst can turn raw public data into meaningful, policy-relevant intelligence.
@@ -253,3 +253,5 @@ It demonstrates an ability to manage real-world datasets, engineer analytical pi
 🌐 Portfolio: 
 
 💻 [GitHub](https://github.com/adugasamuel)
+
+## Thank You.
