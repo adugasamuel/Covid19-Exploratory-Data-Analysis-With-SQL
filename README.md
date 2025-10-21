@@ -246,12 +246,15 @@ It demonstrates an ability to manage real-world datasets, engineer analytical pi
 
 ## 📬 Contact
 
-👤 **[Aduga Emmanuel]**
+👤**Aduga Emmanuel**
 
-📧 Email: [adugasamuel@gmail.com](adugasamuel@gmail.com)
+📧[Email](adugasamuel@gmail.com)
 
-🌐 Portfolio: 
 
 💻 [GitHub](https://github.com/adugasamuel)
+
+🌐 Portfolio
+
+---
 
 ## Thank You.
