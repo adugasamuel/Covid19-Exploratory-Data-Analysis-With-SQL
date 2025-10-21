@@ -1,7 +1,7 @@
 
 # COVID-19 Data Exploratory Analysis (SQL Project)
 
-## 🧠 Overview
+## Overview
 
 This project presents an **end-to-end Exploratory Data Analysis (EDA)** of the global COVID-19 pandemic using **Structured Query Language (SQL)**. The analysis investigates patterns in cases, deaths, and vaccinations between **2020 – 2024**, revealing how the pandemic evolved across countries and continents.
 
@@ -12,7 +12,7 @@ All SQL code, analysis steps, and results are contained in the file:
 
 ---
 
-## 🧩 Project Description
+## Project Description
 
 The goal of this project is to showcase how SQL alone can be used to perform **real-world data cleaning, transformation, analysis, and insight generation** without external analytics tools.
 
@@ -54,7 +54,7 @@ The core problems this project addresses include:
 4.	Designing efficient SQL-based processes for transforming raw data into structured, insightful, and reusable datasets.
 ---
 
-## 🎯 Aim of the Project
+## Aim of the Project
 
 The project aims to perform a **comprehensive SQL-based exploratory analysis** of global COVID-19 data to uncover trends, compute key metrics, and identify actionable insights.
 
@@ -158,7 +158,7 @@ WHERE dea.continent IS NOT NULL;
 
 ---
 
-## 🧰 Skills and Tools Used
+## Skills and Tools Used
 
 * **SQL (T-SQL / Microsoft SQL Server)**
 * **Data Cleaning & Transformation**
