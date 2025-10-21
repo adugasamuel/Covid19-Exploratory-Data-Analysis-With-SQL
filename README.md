@@ -44,15 +44,14 @@ This project leverages SQL to transform the raw dataset into an **insight-rich a
 
 ## ❗ Problem Statement
 
-The dataset presents challenges typical of large, multi-source health data:
+The pandemic led to unprecedented data generation worldwide. However, challenges such as inconsistent reporting, missing values, and fragmented data structures made it difficult to quickly extract reliable insights.
 
-1. **Inconsistent reporting** of daily case and death counts.
-2. **Missing or irregular data** across countries and dates.
-3. **Difficulty in deriving cumulative or population-normalized metrics** directly from raw records.
-4. Need for **efficient SQL methods** to automate and structure the analytical process.
+The core problems this project addresses include:
 
-The project resolves these challenges through robust SQL engineering and exploratory analysis.
-
+1.	Identifying and quantifying the impact of COVID-19 on populations through case and death trends.
+2.	Tracking vaccination progress and understanding its effect on infection and death rates.
+3.	Comparing trends across countries and continents to uncover disparities and regional differences.
+4.	Designing efficient SQL-based processes for transforming raw data into structured, insightful, and reusable datasets.
 ---
 
 ## 🎯 Aim of the Project
