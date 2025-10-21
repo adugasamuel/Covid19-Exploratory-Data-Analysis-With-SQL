@@ -248,18 +248,7 @@ It demonstrates an ability to manage real-world datasets, engineer analytical pi
 
 ## 📬 Contact
 
-👤 **[Your Name]**
-📧 Email: [your.email@example.com](mailto:your.email@example.com)
-🌐 Portfolio: [Your Portfolio or LinkedIn URL]
-💻 GitHub: [Your GitHub Profile Link]
-
----
-
-### ✅ Ready to Use
-
-This README is formatted for direct inclusion in your GitHub repository (`README.md`).
-It aligns with **global data-analytics documentation standards**, and the SQL snippets included are taken directly from your project for authenticity and accuracy.
-
----
-
-Would you like me to also create a **shorter summary version** (for the top of your GitHub repo page) or a **separate technical appendix** for recruiters that explains the SQL logic line-by-line?
+👤 **[Aduga Emmanuel]**
+📧 Email: [adugasamuel@gmail.com](adugasamuel@gmail.com)
+🌐 Portfolio: 
+💻 [GitHub](https://github.com/adugasamuel)]
