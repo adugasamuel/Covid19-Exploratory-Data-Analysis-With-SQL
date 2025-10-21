@@ -44,8 +44,6 @@ In this project, I leverages SQL to transform the raw dataset into an **insight-
 
 ## ❗ Problem Statement
 
-The pandemic led to unprecedented data generation worldwide. However, challenges such as inconsistent reporting, missing values, and fragmented data structures made it difficult to quickly extract reliable insights.
-
 The core problems this project addresses include:
 
 1.	Identifying and quantifying the impact of COVID-19 on populations through case and death trends.
