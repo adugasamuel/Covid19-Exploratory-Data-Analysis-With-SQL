@@ -1,5 +1,5 @@
 
-# 🧮 COVID-19 Data Exploratory Analysis (SQL Project)
+# COVID-19 Data Exploratory Analysis (SQL Project)
 
 ## 🧠 Overview
 
@@ -249,6 +249,9 @@ It demonstrates an ability to manage real-world datasets, engineer analytical pi
 ## 📬 Contact
 
 👤 **[Aduga Emmanuel]**
+
 📧 Email: [adugasamuel@gmail.com](adugasamuel@gmail.com)
+
 🌐 Portfolio: 
+
 💻 [GitHub](https://github.com/adugasamuel)]
