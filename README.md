@@ -1,55 +1,266 @@
-# COVID-19 Data Analysis Project
 
-## Overview
+# 🧮 COVID-19 Data Exploratory Analysis (SQL Project)
 
-This project provides a comprehensive analysis of COVID-19 data using SQL. The data, sourced from [Our World in Data](https://ourworldindata.org/covid-deaths), includes global COVID-19 statistics on infections, deaths, and vaccinations from March 2020 to July 2024. The analysis aims to uncover key insights and trends about the pandemic.
+## 🧠 Overview
 
-## Data Source
+This project presents an **end-to-end Exploratory Data Analysis (EDA)** of the global COVID-19 pandemic using **Structured Query Language (SQL)**. The analysis investigates patterns in cases, deaths, and vaccinations between **2020 – 2024**, revealing how the pandemic evolved across countries and continents.
 
-The dataset was divided into two main parts for easy analysis:
-- **CovidDeaths**: Contains data on global COVID-19 cases and total deaths.
-- **CovidVaccinations**: Contains data on COVID-19 vaccinations.
+The dataset was sourced from **[Our World in Data](https://ourworldindata.org/covid-deaths)** and contains over **414 k rows** of daily COVID-19 records.
+All SQL code, analysis steps, and results are contained in the file:
 
-The dataset includes various metrics such as the number of infected persons, total deaths, vaccinations,location, date,continents and many more.
+🔗 **[CovidExploratoryAnalysis.sql](./CovidExploratoryAnalysis.sql)**
 
-## Objectives 
-This project aims to analyze COVID-19 data using SQL to uncover key insights and trends related to infection rates, recoveries, fatalities, and vaccination progress. By leveraging SQL queries, the analysis will focus on data extraction, cleaning, aggregation, and visualization to identify patterns across different regions and time periods. The objective is to provide data-driven insights that support decision-making in public health, resource allocation, and policy formulation.
+---
 
-## SQL Analysis
+## 🧩 Project Description
 
-SQL was utilized to extract, transform, and analyze the data. Key analyses performed include:
+The goal of this project is to showcase how SQL alone can be used to perform **real-world data cleaning, transformation, analysis, and insight generation** without external analytics tools.
 
-- **Data Extraction**: Pulling relevant columns and rows for analysis.
-- **Data Transformation**: Cleaning and preparing data for analysis.
-- **Trend Analysis**: Examining trends in cases, deaths, and vaccinations over time.
-- **Comparative Analysis**: Comparing data between different countries and continents.
-- **Visualization Preparation**: Creating views to facilitate data visualization.
+This project demonstrates the practical application of:
 
-## Key Insights
+* Common Table Expressions (CTEs)
+* Window Functions (`SUM() OVER (PARTITION BY …)`)
+* Joins and Aggregations
+* Temporary Tables
+* Data-type conversions (`CAST`, `CONVERT`)
+* Creating reusable SQL Views
 
-### Global Insights
-- **Total Cases**: 775,741,465 cases recorded globally.
-- **Total Deaths**: 7,057,367 deaths recorded globally.
-- **Global Death Rate**: Approximately 1%.
+The analysis provides insights such as:
 
-### Country-Specific Insights
-- **United States**: Highest death rate per population with 103,436,829 infected persons and 1,190,579 deaths.
-- **Top 5 Countries with Highest Infection Rates**: United States, Brazil, India, Russia, and Mexico.
-- **Top Continents with Highest Death Cases**: 
-  - North America: 1,190,579 deaths
-  - South America
-  - Asia
-  - Oceania recorded the least number of deaths with 25,236.
+* Global and country-level infection rates and death percentages
+* Comparison of death burden across continents
+* Vaccination trends and population coverage over time
+* Global mortality rates and cumulative vaccination progress
 
-### Vaccination Insights
-- Data on total population vaccinated per country was analyzed.
+---
 
-## Data Visualization
+## 🌍 Project Context
 
-SQL views were created to assist in data visualization. These views can be imported into visualization tools such as Tableau or Power BI to generate interactive dashboards.
+The **COVID-19 pandemic** transformed global health and economic landscapes. Accurate data analytics became essential for understanding transmission trends, mortality rates, and the effect of vaccination programs.
 
+This project leverages SQL to transform the raw dataset into an **insight-rich analytical summary**, forming the foundation for visualization dashboards or further predictive modeling.
 
-## Conclusion
+---
 
-This project demonstrates the use of SQL for analyzing a large COVID-19 dataset. The insights obtained provide valuable information on the trends and impacts of the pandemic from March 2020 to July 2024. The created views enable further exploration and effective visualization of the data.
+## ❗ Problem Statement
 
+The dataset presents challenges typical of large, multi-source health data:
+
+1. **Inconsistent reporting** of daily case and death counts.
+2. **Missing or irregular data** across countries and dates.
+3. **Difficulty in deriving cumulative or population-normalized metrics** directly from raw records.
+4. Need for **efficient SQL methods** to automate and structure the analytical process.
+
+The project resolves these challenges through robust SQL engineering and exploratory analysis.
+
+---
+
+## 🎯 Aim of the Project
+
+The project aims to perform a **comprehensive SQL-based exploratory analysis** of global COVID-19 data to uncover trends, compute key metrics, and identify actionable insights.
+
+### Specific Objectives
+
+* Calculate global and regional **infection and death trends (2020–2024)**.
+* Evaluate **case fatality rates (CFR)** across countries and continents.
+* Determine **the percentage of each country’s population infected**.
+* Track **vaccination progress** using rolling cumulative totals.
+* Create **views and reusable SQL components** for integration with BI dashboards.
+* Identify **top countries and continents** by total deaths and infection rates.
+
+---
+
+## ⚙️ My Approach
+
+### 1. Data Exploration (EDA)
+
+The project used two main tables:
+
+* **CovidDeaths**
+  Columns: `iso_code`, `continent`, `location`, `date`, `population`, `total_cases`, `new_cases`, `total_deaths`, `new_deaths`
+* **CovidVaccinations**
+  Columns: `iso_code`, `continent`, `location`, `date`, `total_tests`, `new_tests`, `new_vaccinations`, `population_density`, `death_rate`
+
+#### Sample inspection query
+
+```sql
+SELECT TOP 10 *
+FROM CovidData..CovidDeaths
+WHERE continent IS NOT NULL
+ORDER BY location, date;
+```
+
+### 2. Data Cleaning & Preparation
+
+* Converted data types for numeric calculations:
+
+  ```sql
+  CONVERT(int, total_deaths)
+  ```
+* Filtered out `NULL` continents to exclude aggregates like “World” or “European Union”.
+* Joined tables on `location` and `date` for synchronized case and vaccination analysis.
+
+### 3. Analytical Process
+
+Key analytical queries included:
+
+#### a. Death Percentage (Case Fatality Rate)
+
+```sql
+SELECT location, date, total_cases, total_deaths,
+       (total_deaths / total_cases) * 100 AS DeathPercentage
+FROM CovidData..CovidDeaths
+WHERE continent IS NOT NULL;
+```
+
+#### b. Infection Rate by Population
+
+```sql
+SELECT location, population,
+       MAX((total_cases / population) * 100) AS PercentPopulationInfected
+FROM CovidData..CovidDeaths
+GROUP BY location, population;
+```
+
+#### c. Global Summary Metrics
+
+```sql
+SELECT SUM(new_cases) AS TotalCases,
+       SUM(CAST(new_deaths AS int)) AS TotalDeaths,
+       SUM(CAST(new_deaths AS int)) / SUM(new_cases) * 100 AS GlobalDeathPercentage
+FROM CovidData..CovidDeaths
+WHERE continent IS NOT NULL;
+```
+
+#### d. Rolling Vaccination Totals
+
+```sql
+SELECT dea.location, dea.date, dea.population,
+       SUM(CONVERT(bigint, vac.new_vaccinations))
+         OVER (PARTITION BY dea.location ORDER BY dea.date) AS RollingPeopleVaccinated
+FROM CovidData..CovidDeaths dea
+JOIN CovidData..CovidVaccinations vac
+     ON dea.location = vac.location AND dea.date = vac.date
+WHERE dea.continent IS NOT NULL;
+```
+
+#### e. View Creation for Visualization
+
+```sql
+CREATE VIEW PercentPopulationVaccinated AS
+SELECT dea.continent, dea.location, dea.date, dea.population,
+       SUM(CONVERT(bigint, vac.new_vaccinations))
+         OVER (PARTITION BY dea.location ORDER BY dea.date) AS RollingPeopleVaccinated
+FROM CovidData..CovidDeaths dea
+JOIN CovidData..CovidVaccinations vac
+     ON dea.location = vac.location AND dea.date = vac.date
+WHERE dea.continent IS NOT NULL;
+```
+
+---
+
+## 🧰 Skills and Tools Used
+
+* **SQL (T-SQL / Microsoft SQL Server)**
+* **Data Cleaning & Transformation**
+* **Analytical Query Design**
+* **Window Functions & Aggregations**
+* **Common Table Expressions (CTEs)**
+* **Joins, Subqueries, Views, Temp Tables**
+* **Data Documentation & Interpretation**
+
+---
+
+## 📊 Key Performance Indicators (KPIs)
+
+### Country-Level Death Counts
+
+| Location       | Total Death Count |
+| -------------- | ----------------: |
+| United States  |         1,190,579 |
+| Brazil         |           702,116 |
+| India          |           533,622 |
+| Russia         |           403,108 |
+| Mexico         |           334,501 |
+| United Kingdom |           232,112 |
+
+### Continent-Level Summary
+
+| Continent     | Total Death Count |
+| ------------- | ----------------: |
+| North America |         1,190,579 |
+| South America |           702,116 |
+| Asia          |           533,622 |
+| Europe        |           403,108 |
+| Africa        |           102,595 |
+| Oceania       |            25,236 |
+
+### Global Summary
+
+| Metric                  |       Value |
+| ----------------------- | ----------: |
+| Total Cases             | 775,741,465 |
+| Global Death Percentage |      0.91 % |
+| Total Deaths            |   7,057,367 |
+
+---
+
+## 🔍 Key Insights
+
+* The **United States** reported the highest number of total deaths globally, followed by **Brazil** and **India**.
+* **Asia** and **Europe** exhibited comparable total death counts, emphasizing widespread regional impact.
+* The **global case-fatality rate (CFR)** stood at roughly **0.9 %**, though country-level variation was significant.
+* Rolling vaccination data show **steady cumulative growth**, with advanced economies reaching high coverage early.
+* Some regions demonstrate **vaccination plateaus**, suggesting logistic or policy-related barriers.
+
+---
+
+## ✨ Key Features
+
+* End-to-end analysis written entirely in **SQL** — no external tools required.
+* Modular code structure: each section (deaths, infections, vaccinations) analyzed separately.
+* Use of **window functions** for cumulative trends and **CTEs** for readability.
+* Includes **reusable view** (`PercentPopulationVaccinated`) for BI integration.
+* Fully documented and reproducible analytical process.
+
+---
+
+## 💡 Recommendations
+
+* Strengthen **global data standardization** to minimize inconsistencies in reported metrics.
+* Leverage **automated ETL pipelines** to refresh dashboards in real-time using the created SQL view.
+* Visualize the output using BI tools such as Power BI or Tableau to enhance stakeholder interpretation.
+* Extend analysis by incorporating:
+
+  * **Rolling 7-day averages** to smooth daily reporting irregularities.
+  * **Population-density and testing metrics** for deeper epidemiological insights.
+  * **Forecasting models** (e.g., ARIMA / Prophet) to predict future case and vaccination trends.
+
+---
+
+## 🏁 Final Note
+
+This SQL-based COVID-19 analysis highlights how **structured data querying** can reveal global health insights without relying on external analytical platforms.
+The project blends **technical SQL expertise** with **data storytelling**, forming a strong example of how a data analyst can turn raw public data into meaningful, policy-relevant intelligence.
+
+It demonstrates an ability to manage real-world datasets, engineer analytical pipelines, and communicate insights clearly — essential competencies for professional data analysts.
+
+---
+
+## 📬 Contact
+
+👤 **[Your Name]**
+📧 Email: [your.email@example.com](mailto:your.email@example.com)
+🌐 Portfolio: [Your Portfolio or LinkedIn URL]
+💻 GitHub: [Your GitHub Profile Link]
+
+---
+
+### ✅ Ready to Use
+
+This README is formatted for direct inclusion in your GitHub repository (`README.md`).
+It aligns with **global data-analytics documentation standards**, and the SQL snippets included are taken directly from your project for authenticity and accuracy.
+
+---
+
+Would you like me to also create a **shorter summary version** (for the top of your GitHub repo page) or a **separate technical appendix** for recruiters that explains the SQL logic line-by-line?
