@@ -38,7 +38,7 @@ The analysis provides insights such as:
 
 The **COVID-19 pandemic** transformed global health and economic landscapes. Accurate data analytics became essential for understanding transmission trends, mortality rates, and the effect of vaccination programs.
 
-This project leverages SQL to transform the raw dataset into an **insight-rich analytical summary**, forming the foundation for visualization dashboards or further predictive modeling.
+In this project, I leverages SQL to transform the raw dataset into an **insight-rich analytical summary**, forming the foundation for visualization dashboards or further predictive modeling.
 
 ---
 
