@@ -254,4 +254,4 @@ It demonstrates an ability to manage real-world datasets, engineer analytical pi
 
 🌐 Portfolio: 
 
-💻 [GitHub](https://github.com/adugasamuel)]
+💻 [GitHub](https://github.com/adugasamuel)
