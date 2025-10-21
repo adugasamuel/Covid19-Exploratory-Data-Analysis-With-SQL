@@ -231,9 +231,7 @@ WHERE dea.continent IS NOT NULL;
 
   * **Rolling 7-day averages** to smooth daily reporting irregularities.
   * **Population-density and testing metrics** for deeper epidemiological insights.
-  * **Forecasting models** (e.g., ARIMA / Prophet) to predict future case and vaccination trends.
-
----
+  * **Forecasting models**
 
 ## Final Note
 
