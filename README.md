@@ -242,14 +242,14 @@ The project blends **technical SQL expertise** with **data storytelling**, formi
 
 ## 📬 Contact
 
-👤**Aduga Emmanuel**
+👤 **Aduga Emmanuel**
 
-📧[Email](adugasamuel@gmail.com)
+📧 [Email](adugasamuel@gmail.com)
 
 
 💻 [GitHub](https://github.com/adugasamuel)
 
-🌐 Portfolio
+🌐 [Portfolio](https://adugasamuel.github.io/)
 
 ---
 
